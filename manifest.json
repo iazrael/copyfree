@@ -1,0 +1,20 @@
+{
+    "name": "Copy Free",
+    "version": "1.0",
+    
+    "description": "Unfreeze the limit of copy in those novel websites",
+    "icons": {
+        "16": "icons/icon16.png",
+        "48": "icons/icon48.png",
+        "128": "icons/icon128.png" 
+    },
+    
+    "browser_action": {
+        "default_icon": "icons/icon19.png"
+    },
+    
+    "background_page": "background.html",
+    "permissions": [
+        "tabs", "http://*/*", "https://*/*"
+    ]
+}

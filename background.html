@@ -1,0 +1,36 @@
+<html>
+<head>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-23019343-4']);
+  _gaq.push(['_trackPageview']);
+</script>
+<script src="ga.js"></script>
+<script>
+;(function(){
+
+var unfreeze = function(tabId){
+    chrome.tabs.executeScript(tabId, {
+        file: './content.js',
+        allFrames: true
+    });
+    chrome.tabs.insertCSS(tabId, {
+        file: './content.css',
+        allFrames: true
+    });
+}
+
+chrome.browserAction.onClicked.addListener(function(tab){
+    unfreeze(tab.id);
+    alert('now the copy is free!');
+
+});
+
+
+})();
+
+</script>
+</head>
+<body>
+</body>
+</html>
