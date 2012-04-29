@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Copy Free Build" default="clean" basedir="./">
+
+    <description>Copy Free Build</description>
+
+    <property name="build" location="build"/>
+    <property name="lib" location="lib"/>
+    
+    <property name="charset" value="utf-8"/>
+    <property name="zipname" value="build.zip"/>
+    
+    <target name="init">
+        <delete dir="${build}" />
+        <mkdir dir="${build}" />
+    </target>
+    
+    <target name="copy" depends="init">
+        <copy todir="${build}">
+            <fileset dir="${basedir}">
+                <include name="manifest.json" />
+                <include name="background.html" />
+                <include name="content.js" />
+                <include name="content.css" />
+            </fileset>
+        </copy>
+        <copy todir="${build}/icons">
+            <fileset dir="${basedir}/icons">
+                <include name="*.png" />
+            </fileset>
+        </copy>
+    </target>
+    
+    <target name="zip" depends="copy">
+        <zip destfile="${basedir}/${zipname}" basedir="${build}"/>
+    </target>
+    
+    <target name="clean" depends="zip">
+    </target>
+</project>
