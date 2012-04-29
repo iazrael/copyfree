@@ -21,6 +21,7 @@
                 <include name="background.html" />
                 <include name="content.js" />
                 <include name="content.css" />
+                <include name="ga.js" />
             </fileset>
         </copy>
         <copy todir="${build}/icons">
